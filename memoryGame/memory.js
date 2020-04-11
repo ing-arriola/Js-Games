@@ -50,5 +50,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
             img:'images/pizza.png' 
         },
      ]
- 
+
+     const grid = document.querySelector('.grid')
+
+     //Creating board
+
+     for (let i = 0; i < cardArray.length; i++) {
+         let card = document.createElement('img')
+         card.setAttribute('src','images/blank.png')
+         card.setAttribute('data-id',i)
+         //card.addEventListener('click',flip)
+         grid.appendChild(card)
+         
+     }
+
 })
