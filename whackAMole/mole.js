@@ -1,10 +1,11 @@
 const square = document.querySelectorAll('.square')
 const mole = document.querySelectorAll('.mole')
-const timeleft = document.getElementById('time-left')
+const timeleft = document.getElementById('seconds-left')
 let score = document.getElementById('score')
 
 let result = 0
 let hitPosition
+let currentTime = timeleft.textContent
 //Showing the mole in a random square after the last time that appear
 const randomSquare = () =>{
     square.forEach(className => {
@@ -30,7 +31,23 @@ const moveMole = () => {
     let timerId = null
     timerId = setInterval(() => {
         randomSquare()
-    }, 1000);
+    }, 800);
 }
 
 moveMole()
+
+const countDown = () => {
+    currentTime--
+    timeleft.textContent = currentTime
+    //After 1 minute, the game is over =O
+    if (currentTime === 0) {
+        clearInterval(timerId)
+        alert(`Game over, your score is: ${result}`)
+
+    }
+}
+
+
+let timerId  = setInterval(() => {
+    countDown()  
+}, 1000);
