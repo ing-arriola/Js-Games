@@ -21,3 +21,19 @@ h1,h2,h3{
     text-align: center;
     color: white;
 }
+
+.grid-mole{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 618px;
+    height: 618px;
+    margin: auto;
+}
+
+.square{
+    width: 200px;
+    height: 200px;
+    border-style: solid;
+    border-color: white;
+}
