@@ -37,3 +37,8 @@ h1,h2,h3{
     border-style: solid;
     border-color: white;
 }
+
+.mole{
+    background-image: url('/whackAMole/mole.png');
+    background-size: cover;
+}
