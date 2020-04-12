@@ -51,6 +51,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
         },
      ]
 
+
+     cardArray.sort( () => 0.5 - Math.random())
+
      const grid = document.querySelector('.grid')
      const resultDisplay = document.getElementById('result')
      let cardsChosen = []
@@ -66,10 +69,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
          
          console.log(optionOneId)
          console.log(optionTwoId)
-         if (cardsChosen[0] == cardsChosen[1]) {
+         if (cardsChosen[0] === cardsChosen[1]) {
              alert('You found a match :-)')
-             cards[optionOneId].setAttribute('src','images/white.png')
-             cards[optionTwoId].setAttribute('src','images/white.png')
+             cards[optionOneId].setAttribute('src','images/found.png')
+             cards[optionTwoId].setAttribute('src','images/found.png')
              cardsWon.push(cardsChosen)
          }else{
             cards[optionOneId].setAttribute('src','images/blank.png')
@@ -78,7 +81,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
          }
          cardsChosen = []
          cardsChosenId = []
-         
+         resultDisplay.textContent = cardsWon.length
+         if (cardsWon.length === cardArray.length/2) {
+             resultDisplay.textContent = 'Congratulations!! You found the all! =)'
+             setTimeout(() => {
+                resultDisplay.textContent=0
+                cards.forEach(element => {
+                    element.setAttribute('src','images/blank.png')
+                });
+             }, 3000 );
+
+         }
 
      }
 
