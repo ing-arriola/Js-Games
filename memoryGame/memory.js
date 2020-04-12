@@ -59,10 +59,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
      const checkForMatch = () =>{
          let cards = document.querySelectorAll('img')
-         const optionOneId = cardsChosen[0]
-         const optionTwoId = cardsChosen[1]
-
-         if (optionOneId === optionTwoId) {
+         
+         
+         const optionOneId = cardsChosenId[0]
+         const optionTwoId = cardsChosenId[1]
+         
+         console.log(optionOneId)
+         console.log(optionTwoId)
+         if (cardsChosen[0] == cardsChosen[1]) {
              alert('You found a match :-)')
              cards[optionOneId].setAttribute('src','images/white.png')
              cards[optionTwoId].setAttribute('src','images/white.png')
@@ -74,22 +78,22 @@ document.addEventListener('DOMContentLoaded', ()=>{
          }
          cardsChosen = []
          cardsChosenId = []
-         resultDisplay
+         
 
      }
 
-     const flipCard = () =>{
-        let cardId = this.getAttribute('data-id')
+     const flipCard = (e) =>{
+        let cardId = e.target.getAttribute('data-id')
         cardsChosen.push(cardArray[cardId].name)
         cardsChosenId.push(cardId)
-        this.setAttribute('src',cardArray[cardId].img)//set the image from the array
+        e.target.setAttribute('src',cardArray[cardId].img)//set the image from the array
         //check for a match, but only if the user has been selected two cards
         if (cardsChosen.length === 2) {
             setTimeout(() => {
                 checkForMatch()
             }, 500);
         }
-
+        
      }
 
      //Creating board
