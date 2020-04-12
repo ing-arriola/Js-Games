@@ -60,15 +60,21 @@ document.addEventListener('DOMContentLoaded', ()=>{
      let cardsChosenId = []
      let cardsWon = []
 
+
+     const reStartGame = (cards) => {
+        setTimeout(() => {
+            resultDisplay.textContent=0
+            cards.forEach(element => {
+                element.setAttribute('src','images/blank.png')
+            });
+         }, 3000 );
+     }
+
      const checkForMatch = () =>{
-         let cards = document.querySelectorAll('img')
-         
-         
+         let cards = document.querySelectorAll('img')     
          const optionOneId = cardsChosenId[0]
          const optionTwoId = cardsChosenId[1]
-         
-         console.log(optionOneId)
-         console.log(optionTwoId)
+    
          if (cardsChosen[0] === cardsChosen[1]) {
              alert('You found a match :-)')
              cards[optionOneId].setAttribute('src','images/found.png')
@@ -84,12 +90,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
          resultDisplay.textContent = cardsWon.length
          if (cardsWon.length === cardArray.length/2) {
              resultDisplay.textContent = 'Congratulations!! You found the all! =)'
-             setTimeout(() => {
-                resultDisplay.textContent=0
-                cards.forEach(element => {
-                    element.setAttribute('src','images/blank.png')
-                });
-             }, 3000 );
+             reStartGame(cards)
+             
 
          }
 
