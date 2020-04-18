@@ -17,7 +17,7 @@ background: linear-gradient(to right, #4ca2cd, #67B26F); /* W3C, IE 10+/ Edge, F
     margin: 10px;
 }
 
-h1,h2,h3{
+h1,h2{
     text-align: center;
     color: white;
 }
@@ -28,7 +28,7 @@ h1,h2,h3{
     justify-content: center;
     width: 618px;
     height: 618px;
-    margin: auto;
+    
 }
 
 .square{
@@ -42,3 +42,17 @@ h1,h2,h3{
     background-image: url('/whackAMole/mole.png');
     background-size: cover;
 }
+
+
+  .left {
+    width: 35%;
+  }
+  
+  .right {
+    width: 65%;
+  }
+
+
+  .contenedor{
+      text-align: center;
+  }
